@@ -58,7 +58,7 @@ public class AuthService {
         return savedUser.getUsername();
     }
 
-    private Long getUsernameFromDatabase(String gsmNumber) {
+    public Long getUsernameFromDatabase(String gsmNumber) {
         return userRepository.findByUsername(gsmNumber)
                 .map(User::getId)
                 .orElseThrow(() -> new UsernameNotFoundException(USERNAME_NOT_FOUND.getMsg()));
