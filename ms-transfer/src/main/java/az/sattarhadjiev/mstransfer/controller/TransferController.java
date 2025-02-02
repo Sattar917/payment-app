@@ -5,7 +5,6 @@ import az.sattarhadjiev.mstransfer.dto.request.RefundRequestDto;
 import az.sattarhadjiev.mstransfer.dto.request.TopupRequestDto;
 import az.sattarhadjiev.mstransfer.dto.response.TransferResponseDto;
 import az.sattarhadjiev.mstransfer.service.TransferService;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -18,7 +17,6 @@ import static lombok.AccessLevel.PRIVATE;
 @RequiredArgsConstructor
 @RequestMapping("/transfers")
 @FieldDefaults(level = PRIVATE, makeFinal = true)
-@Tag(name = "Transfers", description = "Operations related to balance")
 public class TransferController {
 
     TransferService transferService;

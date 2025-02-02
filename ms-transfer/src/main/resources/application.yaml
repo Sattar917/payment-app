@@ -9,6 +9,13 @@ spring:
     username: ${POSTGRES_USER:kapital}
     password: ${POSTGRES_PASSWORD:kapital}
     url: jdbc:postgresql://${POSTGRES_HOST:db}:${POSTGRES_PORT:5432}/${POSTGRES_DB:transfer}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 1800000
+      pool-name: HikariPool-Transfer
   jpa:
     hibernate:
       ddl-auto: none
@@ -24,12 +31,6 @@ server:
   port: 8001
   servlet:
     context-path: /transfer-management
-
-springdoc:
-  api-docs:
-    path: /transfer-management/v3/api-docs
-  swagger-ui:
-    path: /transfer-management/swagger-ui.htm
 
 eureka:
   client:
