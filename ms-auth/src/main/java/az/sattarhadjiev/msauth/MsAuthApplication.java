@@ -12,4 +12,6 @@ public class MsAuthApplication {
         SpringApplication.run(MsAuthApplication.class, args);
     }
 
+
+
 }

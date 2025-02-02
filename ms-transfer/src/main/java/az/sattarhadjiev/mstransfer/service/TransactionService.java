@@ -1,6 +1,8 @@
 package az.sattarhadjiev.mstransfer.service;
 
+import az.sattarhadjiev.mstransfer.dto.response.TransactionResponse;
 import az.sattarhadjiev.mstransfer.enums.TransactionType;
+import az.sattarhadjiev.mstransfer.mapper.TransactionMapper;
 import az.sattarhadjiev.mstransfer.model.Transaction;
 import az.sattarhadjiev.mstransfer.repository.TransactionRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -21,6 +23,8 @@ import static lombok.AccessLevel.PRIVATE;
 public class TransactionService {
 
     TransactionRepository transactionRepository;
+
+    TransactionMapper transactionMapper;
 
     @Transactional
     public void save(BigDecimal amount, TransactionType type, Long userId, Long parent) {
@@ -63,5 +67,10 @@ public class TransactionService {
     public Transaction findById(Long transactionId) {
         return transactionRepository.findById(transactionId)
                 .orElseThrow(() -> new EntityNotFoundException(TRANSACTION_NOT_FOUND.getMsg()));
+    }
+
+    public List<TransactionResponse> getTransactionsByUserId(Long userId) {
+        return transactionMapper.toDtoList(transactionRepository.findAllByUserId(userId));
+
     }
 }
