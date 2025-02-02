@@ -1,5 +1,6 @@
 package az.sattarhadjiev.mstransfer.dto.response;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
@@ -10,6 +11,7 @@ import static lombok.AccessLevel.PRIVATE;
 
 @Data
 @Builder
+@AllArgsConstructor
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 public class TransferResponseDto {
     BigDecimal amount;

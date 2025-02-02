@@ -30,5 +30,4 @@ public class AccountController {
         accountService.saveAccount(request);
     }
 
-
 }
