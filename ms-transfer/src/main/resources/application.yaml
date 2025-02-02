@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: transfer-ms
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: kapital
+    password: kapital
+    url: jdbc:postgresql://localhost:5432/transfer
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+
+server:
+  port: 8001
+  servlet:
+    context-path: /transfer-management
