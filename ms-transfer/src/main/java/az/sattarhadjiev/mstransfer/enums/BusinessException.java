@@ -13,6 +13,7 @@ public enum BusinessException {
 
     PERMISSION_DENIED("Permission denied."),
     ACCOUNT_NOT_FOUND("Account not found."),
+    ACCOUNT_ALREADY_EXISTS("An account with this userId already exists."),
     TRANSACTION_NOT_FOUND("Transaction not found."),
     NOT_ENOUGH_BALANCE("Not enough balance! Available balance: %s"),
     ALREADY_REFUNDED("Total refund amount exceeds the original transaction amount.");

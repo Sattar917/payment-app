@@ -26,8 +26,8 @@ public class AccountController {
     }
 
     @PostMapping
-    public void createAccount(@Valid @RequestBody CreateAccountRequest request) {
-        accountService.saveAccount(request);
+    public void createAccount(@Valid @RequestBody CreateAccountRequest request, @RequestHeader Long userId) {
+        accountService.saveAccount(request, userId);
     }
 
 }

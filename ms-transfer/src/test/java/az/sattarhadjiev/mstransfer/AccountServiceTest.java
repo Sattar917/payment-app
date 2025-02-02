@@ -54,7 +54,7 @@ class AccountServiceTest {
     void saveAccount_shouldSaveAccountSuccessfully() {
         when(accountRepository.save(any(Account.class))).thenReturn(account);
 
-        accountService.saveAccount(createAccountRequest);
+        accountService.saveAccount(createAccountRequest, 1L);
 
         verify(accountRepository, times(1)).save(any(Account.class));
     }

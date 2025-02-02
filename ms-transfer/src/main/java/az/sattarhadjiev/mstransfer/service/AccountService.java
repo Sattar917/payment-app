@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static az.sattarhadjiev.mstransfer.enums.BusinessException.ACCOUNT_ALREADY_EXISTS;
 import static lombok.AccessLevel.PRIVATE;
 
 @Service
@@ -24,13 +25,18 @@ public class AccountService {
     AccountMapper accountMapper;
 
     @Transactional
-    public void saveAccount(CreateAccountRequest createAccountRq) {
+    public void saveAccount(CreateAccountRequest createAccountRq, Long userId) {
+        if (accountRepository.existsByUserId(userId)) {
+            throw new IllegalStateException(ACCOUNT_ALREADY_EXISTS.getMsg());
+        }
+
         Account account = Account.builder()
                 .name(createAccountRq.getName())
                 .surname(createAccountRq.getSurname())
                 .balance(createAccountRq.getBalance())
                 .phoneNumber(createAccountRq.getPhoneNumber())
                 .birthDate(createAccountRq.getBirthDate())
+                .userId(userId)
                 .build();
 
         accountRepository.save(account);

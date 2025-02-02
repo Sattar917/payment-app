@@ -23,8 +23,7 @@ import static lombok.AccessLevel.PRIVATE;
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = SEQUENCE, generator = "account_seq")
-    @SequenceGenerator(name = "account_seq", sequenceName = "account_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     Long userId;
