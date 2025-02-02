@@ -1,6 +1,7 @@
-package az.sattarhadjiev.mstransfer.dto;
+package az.sattarhadjiev.mstransfer.dto.request;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -17,18 +17,10 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = PRIVATE)
-public class CreateAccountRequest {
+public class TopupRequestDto {
 
-    @NotBlank
-    String name;
+    @NotNull
+    @Positive
+    BigDecimal amount;
 
-    @NotBlank
-    String surname;
-
-    BigDecimal balance;
-
-    @NotBlank
-    String phoneNumber;
-
-    LocalDateTime birthDate;
 }

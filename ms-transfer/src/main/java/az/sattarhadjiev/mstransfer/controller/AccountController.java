@@ -1,7 +1,7 @@
 package az.sattarhadjiev.mstransfer.controller;
 
-import az.sattarhadjiev.mstransfer.dto.AccountResponse;
-import az.sattarhadjiev.mstransfer.dto.CreateAccountRequest;
+import az.sattarhadjiev.mstransfer.dto.response.AccountResponse;
+import az.sattarhadjiev.mstransfer.dto.request.CreateAccountRequest;
 import az.sattarhadjiev.mstransfer.service.AccountService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

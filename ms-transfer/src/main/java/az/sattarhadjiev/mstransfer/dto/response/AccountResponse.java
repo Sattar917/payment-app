@@ -1,4 +1,4 @@
-package az.sattarhadjiev.mstransfer.dto;
+package az.sattarhadjiev.mstransfer.dto.response;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;

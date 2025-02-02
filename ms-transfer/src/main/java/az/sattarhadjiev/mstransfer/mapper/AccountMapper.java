@@ -1,7 +1,7 @@
 package az.sattarhadjiev.mstransfer.mapper;
 
 
-import az.sattarhadjiev.mstransfer.dto.AccountResponse;
+import az.sattarhadjiev.mstransfer.dto.response.AccountResponse;
 import az.sattarhadjiev.mstransfer.model.Account;
 import org.mapstruct.Mapper;
 

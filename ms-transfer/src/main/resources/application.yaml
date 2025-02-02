@@ -23,7 +23,13 @@ spring:
 server:
   port: 8001
   servlet:
-    context-path: /transfer
+    context-path: /transfer-management
+
+springdoc:
+  api-docs:
+    path: /transfer-management/v3/api-docs
+  swagger-ui:
+    path: /transfer-management/swagger-ui.htm
 
 
 

@@ -1,7 +1,7 @@
 package az.sattarhadjiev.mstransfer.service;
 
-import az.sattarhadjiev.mstransfer.dto.AccountResponse;
-import az.sattarhadjiev.mstransfer.dto.CreateAccountRequest;
+import az.sattarhadjiev.mstransfer.dto.response.AccountResponse;
+import az.sattarhadjiev.mstransfer.dto.request.CreateAccountRequest;
 import az.sattarhadjiev.mstransfer.mapper.AccountMapper;
 import az.sattarhadjiev.mstransfer.model.Account;
 import az.sattarhadjiev.mstransfer.repository.AccountRepository;
