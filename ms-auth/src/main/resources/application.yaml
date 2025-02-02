@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: auth-ms
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${POSTGRES_USER:kapital}
+    password: ${POSTGRES_PASSWORD:kapital}
+    url: jdbc:postgresql://${POSTGRES_HOST:db}:${POSTGRES_PORT:5432}/${POSTGRES_DB:transfer}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  liquibase:
+    url: jdbc:postgresql://${POSTGRES_HOST:db}:${POSTGRES_PORT:5432}/${POSTGRES_DB:transfer}
+    user: ${POSTGRES_USER:kapital}
+    password: ${POSTGRES_PASSWORD:kapital}
+    driver-class-name: org.postgresql.Driver
+    drop-first: false
+
+server:
+  port: 8002
+  servlet:
+    context-path: /auth-management
