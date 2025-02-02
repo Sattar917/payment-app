@@ -26,4 +26,4 @@ server:
   port: 8080
 
 jwt:
-secret: 3cisNpEbyZZUIp83H12iCuSP9yCnCYvYy5rWIcy8zoKgkeLaqr3cisNpEbyZZUIp83H12iCuSP9yCnCYvYy5rWIcy8zoKgkeLaqr
+  secret: 3cisNpEbyZZUIp83H12iCuSP9yCnCYvYy5rWIcy8zoKgkeLaqr3cisNpEbyZZUIp83H12iCuSP9yCnCYvYy5rWIcy8zoKgkeLaqr

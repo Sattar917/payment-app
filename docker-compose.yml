@@ -1,0 +1,100 @@
+version: '3.8'
+
+services:
+  eureka-server:
+    build: ./eureka-server
+    container_name: eureka_server
+    ports:
+      - "8761:8761"
+    networks:
+      - backend
+
+  gateway:
+    build: ./payment-gateway
+    container_name: gateway_service
+    restart: always
+    depends_on:
+      - eureka-server
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      JWT_SECRET: 3cisNpEbyZZUIp83H12iCuSP9yCnCYvYy5rWIcy8zoKgkeLaqr3cisNpEbyZZUIp83H12iCuSP9yCnCYvYy5rWIcy8zoKgkeLaqr
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+
+  db-transfer:
+    image: postgres:15
+    container_name: postgres_db_transfer
+    restart: always
+    environment:
+      POSTGRES_USER: kapital
+      POSTGRES_PASSWORD: kapital
+      POSTGRES_DB: transfer
+    ports:
+      - "5433:5432"  
+    volumes:
+      - postgres_data_transfer:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  ms-transfer:
+    build: ./ms-transfer
+    container_name: ms_transfer_service
+    restart: always
+    depends_on:
+      - db-transfer
+      - eureka-server
+    environment:
+      POSTGRES_HOST: db-transfer
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: transfer
+      POSTGRES_USER: kapital
+      POSTGRES_PASSWORD: kapital
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+    ports:
+      - "8001:8001"
+    networks:
+      - backend
+
+  db-auth:
+    image: postgres:15
+    container_name: postgres_db_auth
+    restart: always
+    environment:
+      POSTGRES_USER: kapital
+      POSTGRES_PASSWORD: kapital
+      POSTGRES_DB: auth
+    ports:
+      - "5434:5432"  
+    volumes:
+      - postgres_data_auth:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  ms-auth:
+    build: ./ms-auth
+    container_name: ms_auth_service
+    restart: always
+    depends_on:
+      - db-auth
+      - eureka-server
+    environment:
+      POSTGRES_HOST: db-auth
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: auth
+      POSTGRES_USER: kapital
+      POSTGRES_PASSWORD: kapital
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+    ports:
+      - "8002:8002"
+    networks:
+      - backend
+
+volumes:
+  postgres_data_transfer:
+  postgres_data_auth:
+
+networks:
+  backend:
+    driver: bridge
