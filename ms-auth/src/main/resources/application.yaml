@@ -25,5 +25,10 @@ server:
   servlet:
     context-path: /auth-management
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
 jwt:
   secret: 3cisNpEbyZZUIp83H12iCuSP9yCnCYvYy5rWIcy8zoKgkeLaqr3cisNpEbyZZUIp83H12iCuSP9yCnCYvYy5rWIcy8zoKgkeLaqr
