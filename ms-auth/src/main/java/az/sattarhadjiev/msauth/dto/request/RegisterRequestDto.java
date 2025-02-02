@@ -8,8 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Data
 @Builder
 @AllArgsConstructor
@@ -21,10 +19,6 @@ public class RegisterRequestDto {
 
     @NotBlank
     private String surname;
-
-    @Past
-    @NotNull
-    private LocalDate birthDate;
 
     @NotBlank
     private String password;

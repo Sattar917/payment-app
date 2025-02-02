@@ -24,8 +24,6 @@ public class User {
 
     private String surname;
 
-    private LocalDate birthDate;
-
     private String password;
 
     @Column(unique = true)
