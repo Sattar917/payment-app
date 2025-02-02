@@ -17,4 +17,14 @@ spring:
 server:
   port: 8001
   servlet:
-    context-path: /transfer-management
+    context-path: /transfer
+
+liquibase:
+  change-log: classpath:db/changelog/db.changelog-master.yaml
+  datasource:
+    url: jdbc:postgresql://localhost:5432/transfer
+    username: kapital
+    password: kapital
+    driver-class-name: org.postgresql.Driver
+  drop-first: false
+
