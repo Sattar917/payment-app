@@ -24,3 +24,6 @@ server:
   port: 8002
   servlet:
     context-path: /auth-management
+
+jwt:
+  secret: 3cisNpEbyZZUIp83H12iCuSP9yCnCYvYy5rWIcy8zoKgkeLaqr3cisNpEbyZZUIp83H12iCuSP9yCnCYvYy5rWIcy8zoKgkeLaqr
