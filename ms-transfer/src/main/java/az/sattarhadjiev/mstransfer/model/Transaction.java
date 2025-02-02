@@ -27,6 +27,7 @@ public class Transaction {
     @SequenceGenerator(name = "transactions_seq", sequenceName = "transactions_id_seq", allocationSize = 1)
     Long id;
 
+    //todo Security later
     Long userId;
 
     @Enumerated(value = EnumType.STRING)

@@ -27,7 +27,12 @@ public class Account {
     @SequenceGenerator(name = "account_seq", sequenceName = "account_id_seq", allocationSize = 1)
     Long id;
 
+    //Todo for security
     Long userId;
+
+    String name;
+
+    String surname;
 
     BigDecimal balance;
 
