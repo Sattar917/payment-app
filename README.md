@@ -35,8 +35,11 @@ docker-compose up --build
 
 Services should now be available:
 Eureka Server: http://localhost:8761
+
 API Gateway: http://localhost:8080
+
 Auth Service: http://localhost:8081
+
 Transaction Service: http://localhost:8082
 
 ## Features:
