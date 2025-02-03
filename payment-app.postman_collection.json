@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "36067406-cc16-4827-8d16-75669a6ee517",
+		"name": "payment-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15551426"
+	},
+	"item": [
+		{
+			"name": "register-user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Johnaa\",\r\n  \"surname\": \"Doeaa\",\r\n  \"password\": \"P@$$wOrd\",\r\n  \"username\": \"johndoe120322\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth-management/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth-management",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login-user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"johndoe120322\",\r\n    \"password\":\"P@$$wOrd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/auth-management/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"auth-management",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-accounts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjQsInN1YiI6ImpvaG5kb2UxMjAzMiIsImlhdCI6MTczODUzOTA0OSwiZXhwIjoxNzM4NTQwODQ5fQ.TZVhBqO5EfZcQbTuZkNtTGajmznGX8lUWNQ8CL1oQwE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transfer-management/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transfer-management",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjUsInN1YiI6ImpvaG5kb2UxMjAzMjIiLCJpYXQiOjE3Mzg1MzkxNDgsImV4cCI6MTczODU0MDk0OH0.5372UBlvKB87gEix7by9iig0QT0YdNRzSoJ4ZPElE7w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"John\",\r\n  \"surname\": \"Doe\",\r\n  \"balance\": 100,\r\n  \"phoneNumber\": \"+1234567890\",\r\n  \"birthDate\": \"1990-05-15T10:30:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transfer-management/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transfer-management",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transactions-by-user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjIsInN1YiI6ImpvaG5kb2UxMjIiLCJpYXQiOjE3Mzg1MzUwNTUsImV4cCI6MTczODUzNjg1NX0.RjLF_IvnOfsRrDOBHs1_mT3Uj6KYEuGDADqyObadA4c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transfer-management/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transfer-management",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "topup",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjUsInN1YiI6ImpvaG5kb2UxMjAzMjIiLCJpYXQiOjE3Mzg1MzkxNDgsImV4cCI6MTczODU0MDk0OH0.5372UBlvKB87gEix7by9iig0QT0YdNRzSoJ4ZPElE7w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 15\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transfer-management/transfers/topup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transfer-management",
+						"transfers",
+						"topup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "purchase",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjIsInN1YiI6ImpvaG5kb2UxMjIiLCJpYXQiOjE3Mzg1MzUwNTUsImV4cCI6MTczODUzNjg1NX0.RjLF_IvnOfsRrDOBHs1_mT3Uj6KYEuGDADqyObadA4c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transfer-management/transfers/purchase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transfer-management",
+						"transfers",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refund",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjIsInN1YiI6ImpvaG5kb2UxMjIiLCJpYXQiOjE3Mzg1MzUwNTUsImV4cCI6MTczODUzNjg1NX0.RjLF_IvnOfsRrDOBHs1_mT3Uj6KYEuGDADqyObadA4c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\" : 15,\r\n    \"transactionId\" : 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transfer-management/transfers/refund",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transfer-management",
+						"transfers",
+						"refund"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
