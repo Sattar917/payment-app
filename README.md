@@ -33,7 +33,9 @@ then build and start the services
 
 docker-compose up --build
 
-Services should now be available:
+
+## Services should now be available:
+
 Eureka Server: http://localhost:8761
 
 API Gateway: http://localhost:8080
